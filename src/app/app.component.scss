@@ -7,3 +7,12 @@
     width: 500px;
     background-color: aqua;
 }
+
+.element {
+    display: inline-flex;
+}
+
+.elements-list {
+    display: flex;
+    flex-direction: column;
+}

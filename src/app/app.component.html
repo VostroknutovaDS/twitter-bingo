@@ -1,8 +1,14 @@
 <div class="container">
-  <div class="elements-list">
-    <input matInput type="text" [(ngModel)]="Title" />
-    <mat-list>
-      <mat-list-item *ngFor="let i of Elements">{{ i }}</mat-list-item>
+  <div class="elements-form">
+    <div>
+      <input matInput type="text" [(ngModel)]="Title" />
+      <button mat-button (click)="addElement">Add</button>
+    </div>
+    <mat-list class="elements-list">
+      <div *ngFor="let i of Elements" class="element">
+        <mat-list-item>{{ i }}</mat-list-item>
+        <button mat-button (click)="removeElement">Remove</button>
+      </div>
     </mat-list>
   </div>
   <div class="bingo-preview"></div>
