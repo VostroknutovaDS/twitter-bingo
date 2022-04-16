@@ -11,6 +11,8 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "semi": "warn"
+    "semi": "warn",
+    "no-empty-function": "warn",
+    "@typescript-eslint/no-empty-function": "warn"
   }
 }
