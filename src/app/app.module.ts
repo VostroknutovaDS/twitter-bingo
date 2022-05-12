@@ -7,10 +7,14 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ElementsFormComponent } from './elements-form/elements-form.component';
+import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ElementsFormComponent,
+    BingoPreviewComponent
   ],
   imports: [
     BrowserModule,

@@ -3,16 +3,6 @@
 }
 
 .bingo-preview {
-    height: 500px;
-    width: 500px;
-    background-color: aqua;
-}
-
-.element {
-    display: inline-flex;
-}
-
-.elements-list {
-    display: flex;
-    flex-direction: column;
+    background: blueviolet;
+    flex-grow: 1;
 }

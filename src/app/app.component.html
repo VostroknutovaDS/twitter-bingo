@@ -1,16 +1,4 @@
 <div class="container">
-  <div class="elements-form">
-    <div>
-      <input matInput type="text" [(ngModel)]="NewElement" placeholder="new bingo element"/>
-      <button mat-button (click)="addElement()">Add</button>
-    </div>
-    <mat-list class="elements-list">
-      <div *ngFor="let i of Elements" class="element">
-        <mat-list-item>{{ i }}</mat-list-item>
-        <button mat-button (click)="editElement()">Edit</button>
-        <button mat-button (click)="removeElement()">Remove</button>
-      </div>
-    </mat-list>
-  </div>
-  <div class="bingo-preview"></div>
+  <app-elements-form></app-elements-form>
+  <app-bingo-preview class="bingo-preview"></app-bingo-preview>
 </div>
