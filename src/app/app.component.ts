@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private title: string = 'twitter-bingo';
+  private title = 'twitter-bingo';
 
   public get Title(): string {
     return this.title;
@@ -25,5 +25,7 @@ export class AppComponent {
   public addElement(): void { }
 
   public removeElement(): void { }
+
+  public editElement(): void {}
 
 }

@@ -2,12 +2,13 @@
   <div class="elements-form">
     <div>
       <input matInput type="text" [(ngModel)]="Title" />
-      <button mat-button (click)="addElement">Add</button>
+      <button mat-button (click)="addElement()">Add</button>
     </div>
     <mat-list class="elements-list">
       <div *ngFor="let i of Elements" class="element">
         <mat-list-item>{{ i }}</mat-list-item>
-        <button mat-button (click)="removeElement">Remove</button>
+        <button mat-button (click)="editElement()">Edit</button>
+        <button mat-button (click)="removeElement()">Remove</button>
       </div>
     </mat-list>
   </div>
