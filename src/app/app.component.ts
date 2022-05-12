@@ -6,14 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private title = 'twitter-bingo';
+  private newElement = '';
 
-  public get Title(): string {
-    return this.title;
+  public get NewElement(): string {
+    return this.newElement;
   }
 
-  public set Title(title: string) {
-    this.title = title;
+  public set NewElement(newElement: string) {
+    this.newElement = newElement;
   }
 
   private elements: string[] = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'];
