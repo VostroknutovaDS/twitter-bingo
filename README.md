@@ -1,7 +1,7 @@
 # twitter-bingo
 Bingo generator for Twitter community
 
-test commit
+check github access
 # TwitterBingo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
