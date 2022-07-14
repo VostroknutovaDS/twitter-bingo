@@ -1,12 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { MOCK_DATA } from 'src/assets/configuration/mock-data';
+import { BingoElement } from '../core/types';
 
 @Component({
   selector: 'app-elements-form',
   templateUrl: './elements-form.component.html',
-  styleUrls: ['./elements-form.component.scss']
+  styleUrls: ['./elements-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ElementsFormComponent implements OnDestroy, OnInit {
   private newElement = '';
@@ -20,7 +22,7 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
     this.newElement = newElement;
   }
 
-  public get Elements(): Observable<string[]> {
+  public get Elements(): Observable<BingoElement[]> {
     return this.elementsService.getElements();
   }
 
@@ -30,6 +32,8 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
     MOCK_DATA.forEach(element => {
       this.elementsService.addElement(element);
     });
+
+    this.elementsService.getElements().subscribe(data => console.log(data));
   }
 
   public ngOnDestroy(): void {
@@ -40,8 +44,4 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
   public addElement(): void {
     this.elementsService.addElement(this.newElement);
   }
-
-  public removeElement(): void { }
-
-  public editElement(): void { }
 }

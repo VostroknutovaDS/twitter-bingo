@@ -1,0 +1,9 @@
+<input
+  matInput
+  type="text"
+  [(ngModel)]="NewValue"
+  [disabled]="!ChangeValue"
+/>
+<button *ngIf="!ChangeValue" mat-button (click)="editElement()">Edit</button>
+<button mat-button *ngIf="ChangeValue" (click)="saveElement()">Save</button>
+<button mat-button (click)="removeElement()">Remove</button>

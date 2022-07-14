@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ElementsFormComponent } from './elements-form/elements-form.component';
 import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 import { DATA_PROVIDERS } from 'src/assets/configuration/providers';
+import { BingoElementComponent } from './bingo-element/bingo-element.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ElementsFormComponent,
-    BingoPreviewComponent
+    BingoPreviewComponent,
+    BingoElementComponent
   ],
   imports: [
     BrowserModule,
