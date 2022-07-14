@@ -8,7 +8,7 @@
   <button mat-button (click)="addElement()">Add</button>
 </div>
 <mat-list class="elements-list">
-  <div *ngFor="let i of Elements" class="element">
+  <div *ngFor="let i of Elements | async" class="element">
     <mat-list-item>{{ i }}</mat-list-item>
     <button mat-button (click)="editElement()">Edit</button>
     <button mat-button (click)="removeElement()">Remove</button>

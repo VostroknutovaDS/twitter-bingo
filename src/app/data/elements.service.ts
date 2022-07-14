@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ElementsBaseService } from '../core/elements-base.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElementsService implements ElementsBaseService {
-  private elements: Observable<string[]> = new Observable();
+  private elements: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
-  public addElement(): void {
-
+  public addElement(el: string): void {
+    this.elements.next(this.elements.value.concat(el));
   }
 
   public editElement(): void {

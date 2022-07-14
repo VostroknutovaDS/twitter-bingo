@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export abstract class ElementsBaseService {
-  public abstract addElement(): void;
+  public abstract addElement(el: string): void;
   public abstract editElement(): void;
   public abstract deleteElement(): void;
   public abstract getElements(): Observable<string[]>;

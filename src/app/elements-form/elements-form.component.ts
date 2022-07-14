@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ElementsBaseService } from '../core/elements-base.service';
-import { takeUntil } from 'rxjs/operators';
+import { MOCK_DATA } from 'src/assets/configuration/mock-data';
 
 @Component({
   selector: 'app-elements-form',
@@ -10,7 +10,6 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class ElementsFormComponent implements OnDestroy, OnInit {
   private newElement = '';
-  private elements: string[] = [];
   private destroy$: Subject<void> = new Subject();
 
   public get NewElement(): string {
@@ -21,14 +20,16 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
     this.newElement = newElement;
   }
 
-  public get Elements(): string[] {
-    return this.elements;
+  public get Elements(): Observable<string[]> {
+    return this.elementsService.getElements();
   }
 
   constructor(private readonly elementsService: ElementsBaseService) { }
 
   public ngOnInit(): void {
-    this.elementsService.getElements().pipe(takeUntil(this.destroy$)).subscribe();
+    MOCK_DATA.forEach(element => {
+      this.elementsService.addElement(element);
+    });
   }
 
   public ngOnDestroy(): void {
@@ -36,7 +37,9 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
     this.destroy$.complete();
   }
 
-  public addElement(): void { }
+  public addElement(): void {
+    this.elementsService.addElement(this.newElement);
+  }
 
   public removeElement(): void { }
 
