@@ -51,6 +51,8 @@ export class BingoElementComponent implements OnInit {
     this.elementsService.editElement(this.element.id, this.newValue);
   }
 
-  public removeElement(): void { }
+  public removeElement(): void {
+    this.elementsService.deleteElement(this.element.id);
+   }
 
 }

@@ -8,6 +8,6 @@ import { BingoElement } from './types';
 export abstract class ElementsBaseService {
   public abstract addElement(el: string): void;
   public abstract editElement(id: string, value: string): void;
-  public abstract deleteElement(): void;
+  public abstract deleteElement(id: string): void;
   public abstract getElements(): Observable<BingoElement[]>;
 }

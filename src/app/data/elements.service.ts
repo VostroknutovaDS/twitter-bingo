@@ -21,8 +21,9 @@ export class ElementsService implements ElementsBaseService {
     this.elements.next(this.elements.value);
   }
 
-  public deleteElement(): void {
-
+  public deleteElement(id: string): void {
+    const elIndex: number = this.elements.value.findIndex(el => el.id === id);
+    this.elements.next([...this.elements.value.slice(0, elIndex), ...this.elements.value.slice(elIndex + 1, this.elements.value.length)]);
   }
 
   public getElements(): Observable<BingoElement[]> {
