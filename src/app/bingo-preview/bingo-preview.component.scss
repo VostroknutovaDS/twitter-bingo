@@ -1,0 +1,18 @@
+$cell-size: 140px;
+
+:host{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bingo-table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.bingo-cell {
+  border: 1px solid white;
+  width: $cell-size;
+  height: $cell-size;
+}
