@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MOCK_TABLE } from 'src/assets/configuration/mock-data';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement } from '../core/types';
 
 @Component({
@@ -8,16 +9,14 @@ import { BingoElement } from '../core/types';
   styleUrls: ['./bingo-preview.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BingoPreviewComponent implements OnInit {
-  private generatedTable: BingoElement[][] = MOCK_TABLE;
+export class BingoPreviewComponent {
+  private generatedTable$: Observable<BingoElement[][]>;
 
-  public get GeneratedTable(): BingoElement[][] {
-    return this.generatedTable;
+  public get GeneratedTable$(): Observable<BingoElement[][]> {
+    return this.generatedTable$;
   }
 
-
-  constructor() { }
-
-  ngOnInit(): void { }
-
+  constructor(private readonly tableGenerationService: TableGenerationBaseService) {
+    this.generatedTable$ = this.tableGenerationService.getTable();
+  }
 }

@@ -1,7 +1,7 @@
 <div class="wrapper">
 <table class="bingo-table">
   <tbody>
-    <tr *ngFor="let item of GeneratedTable">
+    <tr *ngFor="let item of GeneratedTable$ | async">
       <td *ngFor="let list of item" class="bingo-cell">{{ list.value }}</td>
     </tr>
   </tbody>
