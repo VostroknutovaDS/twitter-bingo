@@ -4,6 +4,7 @@ $cell-size: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .bingo-table {
@@ -19,4 +20,8 @@ $cell-size: 140px;
 
 .generated-cell {
   background-color: chocolate;
+}
+
+.bingo-title{
+  margin-bottom: 20px;
 }
