@@ -2,7 +2,7 @@
 <table class="bingo-table">
   <tbody>
     <tr *ngFor="let item of GeneratedTable$ | async">
-      <td *ngFor="let list of item" class="bingo-cell">{{ list.value }}</td>
+      <td *ngFor="let list of item" class="bingo-cell" [ngClass]="{'generated-cell': list.isGenerated}">{{ list.value }}</td>
     </tr>
   </tbody>
 </table>
