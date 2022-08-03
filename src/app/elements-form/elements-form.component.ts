@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { MOCK_DATA } from 'src/assets/configuration/mock-data';
@@ -11,6 +11,7 @@ import { BingoElement } from '../core/types';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ElementsFormComponent implements OnDestroy, OnInit {
+  @ViewChild('addInput') private addInput!: ElementRef;
   private newElement = '';
   private destroy$: Subject<void> = new Subject();
 
@@ -43,5 +44,7 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
 
   public addElement(): void {
     this.elementsService.addElement(this.newElement);
+    this.newElement = '';
+    this.addInput.nativeElement.focus();
   }
 }
