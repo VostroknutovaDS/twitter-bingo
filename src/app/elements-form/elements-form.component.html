@@ -4,8 +4,9 @@
     matInput
     type="text"
     class="add-field__input"
-    [(ngModel)]="NewElement"
     placeholder="new bingo element"
+    [(ngModel)]="NewElement"
+    (keyup.enter)="addElement()"
   />
   <button mat-button (click)="addElement()">Add</button>
 </div>
