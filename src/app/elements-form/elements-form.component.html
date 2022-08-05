@@ -1,15 +1,16 @@
-<div>
+<div class="add-field">
   <input
     #addInput
     matInput
     type="text"
+    class="add-field__input"
     [(ngModel)]="NewElement"
     placeholder="new bingo element"
   />
   <button mat-button (click)="addElement()">Add</button>
 </div>
 <mat-list class="elements-list">
-  <div *ngFor="let i of Elements | async" class="element">
+  <div *ngFor="let i of Elements | async" class="elements-list__element">
     <app-bingo-element [Element]="i"></app-bingo-element>
   </div>
 </mat-list>

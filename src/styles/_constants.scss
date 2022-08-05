@@ -1,0 +1,34 @@
+/*Colors*/
+$main-color: #fff;
+$accent-color: #3590f3;
+$secondary-accent-color: #d8ebfd;
+$generated-cell-color: $accent-color;
+$table-border-color: black;
+$border-color: #000;
+
+/*Borders*/
+$default-border: 1px solid $border-color;
+$accent-border: 2px solid $border-color;
+
+@mixin accent-border-hover($top, $right, $bottom, $left) {
+  border: solid transparent;
+  border-width: $top $right $bottom $left;
+
+  &:hover {
+    @include accent-border($top, $right, $bottom, $left);
+  }
+}
+
+@mixin accent-border($top, $right, $bottom, $left) {
+  border: solid $border-color;
+  border-width: $top $right $bottom $left;
+}
+
+/*Table*/
+$cell-size: 8rem;
+$cell-border-size: 5px;
+$cell-max-size: $cell-size;
+
+/*Gaps*/
+$default-gap: 7px;
+$double-gap: 2 * $default-gap;

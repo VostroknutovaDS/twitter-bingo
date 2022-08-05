@@ -1,0 +1,10 @@
+@import "../../styles/constants";
+
+:host {
+  padding-left: $double-gap;
+}
+
+.element-text {
+  border: none;
+  background-color: transparent;
+}

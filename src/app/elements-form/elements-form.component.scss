@@ -1,8 +1,33 @@
-.element {
-    display: inline-flex;
-}
+@import "../../styles/constants";
 
 .elements-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+
+  &__element {
+    display: inline-flex;
+  }
+
+  &__element:hover {
+    background-color: $accent-color;
+  }
+}
+
+.add-field {
+  background-color: $secondary-accent-color;
+  display: flex;
+  padding-left: $double-gap;
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+  }
+
+  &__input:focus {
+    outline: none;
+  }
+
+  @include accent-border-hover(0, 0, 2px, 0);
 }

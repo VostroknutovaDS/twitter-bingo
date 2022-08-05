@@ -1,27 +1,33 @@
-$cell-size: 140px;
+@import "../../styles/constants";
 
-:host{
+:host {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.bingo-table {
+.table {
   border-collapse: collapse;
   text-align: center;
+
+  &__cell {
+    border: $cell-border-size solid $table-border-color;
+    width: $cell-size;
+    height: $cell-size;
+    max-width: $cell-size;
+    max-height: $cell-size;
+
+    &_generated {
+      background-color: $generated-cell-color;
+    }
+  }
 }
 
-.bingo-cell {
-  border: 1px solid white;
-  width: $cell-size;
-  height: $cell-size;
-}
-
-.generated-cell {
-  background-color: chocolate;
-}
-
-.bingo-title{
+.bingo-title {
   margin-bottom: 20px;
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
 }

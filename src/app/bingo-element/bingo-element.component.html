@@ -1,4 +1,10 @@
-<input matInput type="text" [(ngModel)]="NewValue" [disabled]="!ChangeValue" />
+<input
+  matInput
+  type="text"
+  class="element-text"
+  [(ngModel)]="NewValue"
+  [disabled]="!ChangeValue"
+/>
 <button *ngIf="!ChangeValue" mat-icon-button (click)="editElement()">
   <mat-icon>edit</mat-icon>
 </button>
