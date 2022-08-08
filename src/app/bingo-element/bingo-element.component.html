@@ -5,6 +5,7 @@
   class="element-text"
   [(ngModel)]="NewValue"
   [disabled]="!ChangeValue"
+  (keyup.enter)="saveElement()"
 />
 <button *ngIf="!ChangeValue" mat-icon-button (click)="editElement()">
   <mat-icon>edit</mat-icon>
