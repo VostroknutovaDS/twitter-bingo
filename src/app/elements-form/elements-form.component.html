@@ -10,6 +10,11 @@
   />
   <button mat-button (click)="addElement()">Add</button>
 </div>
+<span class="elements-number"
+  >Elements number: {{ (Elements | async)?.length }}/{{
+    MAX_NUMBER_OF_ELEMENTS
+  }}</span
+>
 <mat-list class="elements-list">
   <div *ngFor="let i of Elements | async" class="elements-list__element">
     <app-bingo-element [Element]="i"></app-bingo-element>

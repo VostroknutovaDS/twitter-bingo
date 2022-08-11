@@ -23,6 +23,8 @@
     background-color: transparent;
     border: none;
     flex-grow: 1;
+    font-weight: 700;
+    padding-left: 0;
   }
 
   &__input:focus {
@@ -30,4 +32,11 @@
   }
 
   @include accent-border-hover(0, 0, 2px, 0);
+}
+
+.elements-number {
+  display: block;
+  padding-left: $double-gap;
+  background-color: $secondary-accent-color;
+  font-size: 12px;
 }
