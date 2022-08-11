@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ElementsBaseService } from '../core/elements-base.service';
-import { MOCK_DATA } from 'src/assets/configuration/mock-data';
 import { BingoElement } from '../core/types';
 import { MAX_NUMBER_OF_ELEMENTS } from 'src/assets/configuration/constants';
 
@@ -11,7 +10,7 @@ import { MAX_NUMBER_OF_ELEMENTS } from 'src/assets/configuration/constants';
   styleUrls: ['./elements-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ElementsFormComponent implements OnDestroy, OnInit {
+export class ElementsFormComponent implements OnDestroy {
   @ViewChild('addInput') private addInput!: ElementRef;
   private newElement = '';
   private destroy$: Subject<void> = new Subject();
@@ -30,14 +29,6 @@ export class ElementsFormComponent implements OnDestroy, OnInit {
   }
 
   constructor(private readonly elementsService: ElementsBaseService) { }
-
-  public ngOnInit(): void {
-    MOCK_DATA.forEach(element => {
-      this.elementsService.addElement(element);
-    });
-
-    this.elementsService.getElements().subscribe(data => console.log(data));
-  }
 
   public ngOnDestroy(): void {
     this.destroy$.next();
