@@ -1,6 +1,6 @@
 <input class="bingo-title" value="Your wonderful bingo!" />
 <div class="wrapper">
-  <table class="table">
+  <!-- <table class="table">
     <tbody>
       <tr *ngFor="let item of GeneratedTable$ | async">
         <td
@@ -12,5 +12,10 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+  <div class="grid grid-size-{{ (GeneratedTable$ | async)?.length }}">
+    <div class="grid__cell" *ngFor="let item of Elements$ | async">
+      {{ item.value }}
+    </div>
+  </div>
 </div>

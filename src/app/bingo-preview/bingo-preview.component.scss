@@ -31,3 +31,50 @@
   font-weight: 700;
   text-align: center;
 }
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $cell-size);
+  grid-template-rows: repeat(auto-fill, $cell-size);
+  gap: $cell-border-size;
+  background-color: $table-border-color;
+  border: $cell-border-size solid $border-color;
+
+  &__cell {
+    background-color: #fff;
+
+    &:hover {
+      outline: $cell-border-size solid red;
+
+      animation: grow 400ms forwards;
+    }
+
+    cursor: pointer;
+  }
+}
+
+// grid-size- костыль, необходимо исправить
+.grid-size-0,
+.grid-size- {
+  display: none;
+}
+
+@for $i from 1 to 6 {
+  .grid-size-#{$i} {
+    $size: calc(
+      (#{$cell-size} + #{$cell-border-size}) * #{$i} - #{$cell-border-size}
+    );
+    height: $size;
+    width: $size;
+  }
+}
