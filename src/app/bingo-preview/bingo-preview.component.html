@@ -13,9 +13,10 @@
       </tr>
     </tbody>
   </table> -->
-  <div class="grid grid-size-{{ (GeneratedTable$ | async)?.length }}">
+  <div class="grid grid-size-{{ (GeneratedTable$ | async)?.table?.length }}">
     <div class="grid__cell" *ngFor="let item of Elements$ | async">
       {{ item.value }}
     </div>
+    <div *ngFor="let empty of NumberOfEmptyCells$ | async" class="grid__cell grid__cell_generated"></div>
   </div>
 </div>

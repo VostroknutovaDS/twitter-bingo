@@ -53,13 +53,19 @@
   &__cell {
     background-color: #fff;
 
-    &:hover {
+    &:hover:not(.grid__cell_generated) {
       outline: $cell-border-size solid red;
 
       animation: grow 400ms forwards;
     }
 
-    cursor: pointer;
+    &_generated {
+      background-color: $generated-cell-color;
+    }
+
+    &:not(.grid__cell_generated) {
+      cursor: pointer;
+    }
   }
 }
 

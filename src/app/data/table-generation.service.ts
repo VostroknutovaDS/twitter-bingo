@@ -3,13 +3,13 @@ import { Observable, Subject } from 'rxjs';
 import { MAX_NUMBER_OF_ELEMENTS, MAX_NUMBER_OF_ROWS } from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
-import { BingoElement } from '../core/types';
+import { BingoElement, Table } from '../core/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TableGenerationService implements TableGenerationBaseService {
-  private table$: Subject<BingoElement[][]> = new Subject<BingoElement[][]>();
+  private table$: Subject<Table> = new Subject<Table>();
   private table: BingoElement[][] = [];
 
   constructor(private readonly elementsService: ElementsBaseService) {
@@ -18,7 +18,7 @@ export class TableGenerationService implements TableGenerationBaseService {
     });
   }
 
-  public getTable(): Observable<BingoElement[][]> {
+  public getTable(): Observable<Table> {
     return this.table$;
   }
 
@@ -35,7 +35,7 @@ export class TableGenerationService implements TableGenerationBaseService {
       this.table.push(newElements.slice(rows * i, rows * (i + 1)));
     }
 
-    this.table$.next(this.table);
+    this.table$.next({ table: this.table, numberOfEmptyCells: rows * rows - elements.length });
   }
 
   private findRowsNumber(elements: Array<unknown>): number {
