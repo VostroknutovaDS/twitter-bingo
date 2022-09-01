@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EditFormModes } from '../core/edit-form-modes';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';
@@ -9,9 +9,15 @@ import { BingoElement } from '../core/types';
   styleUrls: ['./edit-form.component.scss']
 })
 export class EditFormComponent {
+  private closeEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input() public element!: BingoElement;
   @Input() public mode!: EditFormModes;
+
+
+  @Output() public get CloseEditForm(): EventEmitter<boolean> {
+    return this.closeEditForm;
+  }
 
   constructor(private readonly elementsService: ElementsBaseService) { }
 
@@ -23,6 +29,12 @@ export class EditFormComponent {
     if (this.mode === EditFormModes.Edit) {
       this.elementsService.editElement(this.element.id, this.element.value);
     }
+
+    this.closeEditForm.emit(true);
+  }
+
+  public onCloseClick(): void {
+    this.closeEditForm.emit(true);
   }
 
 }

@@ -16,4 +16,8 @@ export class BingoHandlerComponent {
     this.showEditForm = true;
   }
 
+  public closeEditForm(): void {
+    this.showEditForm = false;
+  }
+
 }
