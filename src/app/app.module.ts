@@ -13,6 +13,7 @@ import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 import { DATA_PROVIDERS } from 'src/assets/configuration/providers';
 import { BingoElementComponent } from './bingo-element/bingo-element.component';
 import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
     ElementsFormComponent,
     BingoPreviewComponent,
     BingoElementComponent,
-    BingoHandlerComponent
+    BingoHandlerComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,

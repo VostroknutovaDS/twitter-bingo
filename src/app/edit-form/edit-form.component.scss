@@ -1,0 +1,28 @@
+@import "../../styles/constants";
+
+:host {
+  position: relative;
+  display: block;
+  background-color: cadetblue;
+}
+
+.edit-form {
+  &__text {
+    resize: none;
+  }
+
+  &__button {
+  }
+
+  &__content {
+    position: absolute;
+    background-color: red;
+    border: $accent-border;
+    bottom: $double-gap;
+    left: 0;
+    right: 0;
+    width: 600px;
+    height: 150px;
+    margin: auto;
+  }
+}
