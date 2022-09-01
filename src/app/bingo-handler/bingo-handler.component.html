@@ -1,2 +1,2 @@
-<app-bingo-preview></app-bingo-preview>
-<app-edit-form></app-edit-form>
+<app-bingo-preview (OpenEditForm)="openEditForm()"></app-bingo-preview>
+<app-edit-form *ngIf="ShowEditForm"></app-edit-form>

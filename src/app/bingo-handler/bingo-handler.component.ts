@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-bingo-handler',
   templateUrl: './bingo-handler.component.html',
   styleUrls: ['./bingo-handler.component.scss']
 })
-export class BingoHandlerComponent implements OnInit {
+export class BingoHandlerComponent {
+  private showEditForm = false;
 
-  constructor() { }
+  public get ShowEditForm(): boolean {
+    return this.showEditForm;
+  }
 
-  ngOnInit(): void {
+  public openEditForm(): void {
+    this.showEditForm = true;
   }
 
 }

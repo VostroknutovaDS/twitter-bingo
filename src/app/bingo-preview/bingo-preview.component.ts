@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, Output } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { EventEmitter } from '@angular/core';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
@@ -16,6 +17,7 @@ export class BingoPreviewComponent implements OnDestroy {
   private numberOfEmptyCells$: Subject<number[]> = new Subject();
   private elements$: Observable<BingoElement[]>;
   private destroy$: Subject<boolean> = new Subject();
+  private openEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public get GeneratedTable$(): Observable<Table> {
     return this.generatedTable$;
@@ -29,6 +31,10 @@ export class BingoPreviewComponent implements OnDestroy {
     return this.numberOfEmptyCells$;
   }
 
+  @Output() public get OpenEditForm(): EventEmitter<boolean> {
+    return this.openEditForm;
+  }
+
   constructor(private readonly elementsService: ElementsBaseService, private readonly tableGenerationService: TableGenerationBaseService,) {
     this.generatedTable$ = this.tableGenerationService.getTable();
     this.elements$ = this.elementsService.getElements();
@@ -40,5 +46,9 @@ export class BingoPreviewComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
+  }
+
+  public onEditClick(): void {
+    this.openEditForm.emit(true);
   }
 }
