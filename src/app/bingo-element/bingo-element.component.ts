@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';
 
@@ -8,8 +8,7 @@ import { BingoElement } from '../core/types';
   styleUrls: ['./bingo-element.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BingoElementComponent implements OnInit {
-  @ViewChild('editInput') private editInput!: ElementRef;
+export abstract class BingoElementComponent implements OnInit {
   private element: BingoElement = { id: '', value: '' };
   private newValue = '';
   private changeValue = false;
@@ -35,7 +34,6 @@ export class BingoElementComponent implements OnInit {
     return this.changeValue;
   }
 
-
   constructor(private readonly elementsService: ElementsBaseService) { }
 
   ngOnInit(): void {
@@ -44,7 +42,6 @@ export class BingoElementComponent implements OnInit {
 
   public editElement(): void {
     this.changeValue = true;
-    setTimeout(() => { this.editInput.nativeElement.focus(); });
   }
 
   public saveElement(): void {
@@ -55,5 +52,4 @@ export class BingoElementComponent implements OnInit {
   public removeElement(): void {
     this.elementsService.deleteElement(this.element.id);
   }
-
 }

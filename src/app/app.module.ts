@@ -11,18 +11,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ElementsFormComponent } from './elements-form/elements-form.component';
 import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 import { DATA_PROVIDERS } from 'src/assets/configuration/providers';
-import { BingoElementComponent } from './bingo-element/bingo-element.component';
 import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { BingoElementCellComponent } from './bingo-element-cell/bingo-element-cell.component';
+import { BingoElementListComponent } from './bingo-element-list/bingo-element-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ElementsFormComponent,
     BingoPreviewComponent,
-    BingoElementComponent,
     BingoHandlerComponent,
-    EditFormComponent
+    EditFormComponent,
+    BingoElementCellComponent,
+    BingoElementListComponent
   ],
   imports: [
     BrowserModule,
