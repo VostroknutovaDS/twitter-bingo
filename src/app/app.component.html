@@ -1,4 +1,4 @@
 <div class="page-container">
-  <app-elements-form class="elements-form"></app-elements-form>
+  <app-elements-form *ngIf="!isMobile" class="elements-form"></app-elements-form>
   <app-bingo-handler class="bingo-handler"></app-bingo-handler>
 </div>
