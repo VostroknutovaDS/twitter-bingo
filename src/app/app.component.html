@@ -1,4 +1,16 @@
 <div class="page-container">
-  <app-elements-form *ngIf="!isMobile" class="elements-form"></app-elements-form>
-  <app-bingo-handler class="bingo-handler"></app-bingo-handler>
+  <app-elements-form
+    *ngIf="!isMobile"
+    class="elements-form"
+  ></app-elements-form>
+  <app-bingo-handler class="bingo-handler" (OpenEditForm)="openEditForm()"></app-bingo-handler>
+  <app-edit-form
+    *ngIf="ShowEditForm"
+    [mode]="mode"
+    (CloseEditForm)="closeEditForm()"
+  ></app-edit-form>
 </div>
+
+<button *ngIf="isMobile" mat-fab color="accent" class="add-button" (click)="openEditForm()">
+  <mat-icon>add</mat-icon>
+</button>

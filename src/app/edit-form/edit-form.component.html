@@ -1,5 +1,5 @@
 <div class="edit-form__content">
-  <textarea class="edit-form__text" [value]="element"></textarea>
+  <textarea class="edit-form__text" [(ngModel)]="newValue"></textarea>
   <button (click)="onCloseClick()">Close</button>
   <button class="edit-form__button" (click)="saveChanges()">Add</button>
 </div>

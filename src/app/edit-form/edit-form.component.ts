@@ -10,6 +10,8 @@ import { BingoElement } from '../core/types';
 })
 export class EditFormComponent {
   private closeEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+  public newValue = '';
 
   @Input() public element!: BingoElement;
   @Input() public mode!: EditFormModes;
@@ -23,7 +25,7 @@ export class EditFormComponent {
 
   public saveChanges(): void {
     if (this.mode === EditFormModes.Add) {
-      this.elementsService.addElement(this.element.value);
+      this.elementsService.addElement(this.newValue);
     }
 
     if (this.mode === EditFormModes.Edit) {
