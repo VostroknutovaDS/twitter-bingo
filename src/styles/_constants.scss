@@ -26,9 +26,13 @@ $accent-border: 2px solid $border-color;
 }
 
 /*Table*/
-$cell-size: 16vh;
-$cell-border-size: 5px;
+$cell-size: 15vh;
 $cell-max-size: $cell-size;
+
+$cell-size-mob: 16vw;
+$cell-max-size-mob: $cell-size-mob;
+
+$cell-border-size: 5px;
 
 /*Gaps*/
 $default-gap: 7px;

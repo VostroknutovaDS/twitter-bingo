@@ -14,10 +14,18 @@
 
   &__cell {
     border: $cell-border-size solid $table-border-color;
+
     width: $cell-size;
     height: $cell-size;
     max-width: $cell-size;
     max-height: $cell-size;
+
+    @media (max-width: 425px) {
+      width: $cell-size-mob;
+      height: $cell-size-mob;
+      max-width: $cell-size-mob;
+      max-height: $cell-size-mob;
+    }
 
     &_generated {
       background-color: $generated-cell-color;
@@ -47,6 +55,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, $cell-size);
   grid-template-rows: repeat(auto-fill, $cell-size);
+
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(auto-fill, $cell-size-mob);
+    grid-template-rows: repeat(auto-fill, $cell-size-mob);
+  }
+
   gap: $cell-border-size;
   background-color: $table-border-color;
   border: $cell-border-size solid $border-color;
@@ -83,5 +97,13 @@
     );
     height: $size;
     width: $size;
+
+    @media (max-width: 425px) {
+      $size: calc(
+        (#{$cell-size-mob} + #{$cell-border-size}) * #{$i} - #{$cell-border-size}
+      );
+      height: $size;
+      width: $size;
+    }
   }
 }
