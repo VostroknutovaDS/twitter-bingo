@@ -8,8 +8,13 @@ import { EditFormModes } from './core/edit-form-modes';
 })
 export class AppComponent implements OnInit {
   public isMobile = false;
+  private showAddButton = true;
   private showEditForm = false;
   public mode: EditFormModes = EditFormModes.Add;
+
+  public get ShowAddButton(): boolean {
+    return this.showAddButton;
+  }
 
   ngOnInit(): void {
     this.isMobile = navigator.userAgent.includes('Mobi');
@@ -22,9 +27,11 @@ export class AppComponent implements OnInit {
 
   public openEditForm(): void {
     this.showEditForm = true;
+    this.showAddButton = false;
   }
 
   public closeEditForm(): void {
     this.showEditForm = false;
+    this.showAddButton = true;
   }
 }
