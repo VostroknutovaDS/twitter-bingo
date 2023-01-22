@@ -3,6 +3,7 @@
 :host {
   height: 100%;
   display: block;
+  overflow: auto;
 }
 
 .page-container {
@@ -20,7 +21,7 @@
 }
 
 .add-button {
-  position: absolute;
+  position: fixed;
   bottom: 5%;
   right: 5%;
 }

@@ -1,5 +1,13 @@
 <div class="edit-form__content">
-  <textarea class="edit-form__text" [(ngModel)]="newValue"></textarea>
-  <button (click)="onCloseClick()">Close</button>
-  <button class="edit-form__button" (click)="saveChanges()">Add</button>
+  <div class="edit-form__text-container">
+    <textarea class="text" maxlength="55" [(ngModel)]="newValue"></textarea>
+  </div>
+  <div class="button-group button-group_col edit-form__button-group">
+    <button mat-flat-button color="warn" (click)="onCloseClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <button mat-flat-button class="edit-form__button" (click)="saveChanges()">
+      <mat-icon>done</mat-icon>
+    </button>
+  </div>
 </div>

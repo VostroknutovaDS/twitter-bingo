@@ -1,29 +1,47 @@
 @import "../../styles/constants";
 
 :host {
-  position: relative;
-  left: -100%;
+  position: fixed;
+  left: 3%;
+  bottom: 0;
   display: block;
   background-color: cadetblue;
 }
 
 .edit-form {
-  &__text {
-    resize: none;
+  &__text-container {
+    flex-grow: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      resize: none;
+      width: $cell-size;
+      height: $cell-size;
+      border: $cell-border-size solid $border-color;
+    }
   }
 
-  &__button {
+  &__button-group {
+    flex-grow: 1;
+    justify-content: space-evenly;
+
+    margin-right: $double-gap;
   }
 
   &__content {
     position: absolute;
-    background-color: red;
-    border: $accent-border;
-    bottom: $double-gap;
+    background-color: $background-color;
+    border-radius: 20px 20px 0 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    width: 600px;
-    height: 150px;
+    width: 95vw;
+    height: 25vh;
     margin: auto;
+
+    display: flex;
   }
 }
