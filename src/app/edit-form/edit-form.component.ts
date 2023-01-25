@@ -16,7 +16,6 @@ export class EditFormComponent implements OnChanges {
   @Input() public element: BingoElement | null = null;
   @Input() public mode!: EditFormModes;
 
-
   @Output() public get CloseEditForm(): EventEmitter<boolean> {
     return this.closeEditForm;
   }
@@ -29,6 +28,10 @@ export class EditFormComponent implements OnChanges {
     }
   }
 
+  public isEdit(): boolean {
+    return this.mode === EditFormModes.Edit;
+  }
+
   public saveChanges(): void {
     if (this.mode === EditFormModes.Add) {
       this.elementsService.addElement(this.newValue);
@@ -38,11 +41,19 @@ export class EditFormComponent implements OnChanges {
       this.elementsService.editElement(this.element.id, this.newValue);
     }
 
-    this.closeEditForm.emit(true);
+    this.closeForm();
   }
 
   public onCloseClick(): void {
-    this.closeEditForm.emit(true);
+    this.closeForm();
   }
 
+  public onDeleteClick(): void {
+    this.elementsService.deleteElement((this.element as BingoElement).id);
+    this.closeForm();
+  }
+
+  private closeForm(): void {
+    this.closeEditForm.emit(true);
+  }
 }

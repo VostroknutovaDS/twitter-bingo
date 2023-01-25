@@ -3,6 +3,14 @@
     <textarea class="text" maxlength="55" [(ngModel)]="newValue"></textarea>
   </div>
   <div class="button-group button-group_col edit-form__button-group">
+    <button
+      mat-flat-button
+      color="warn"
+      *ngIf="isEdit()"
+      (click)="onDeleteClick()"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
     <button mat-flat-button color="warn" (click)="onCloseClick()">
       <mat-icon>close</mat-icon>
     </button>
