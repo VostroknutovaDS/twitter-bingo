@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { EditFormModes } from '../core/edit-form-modes';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { BingoElement } from '../core/types';
 
 @Component({
   selector: 'app-bingo-handler',
@@ -7,14 +7,14 @@ import { EditFormModes } from '../core/edit-form-modes';
   styleUrls: ['./bingo-handler.component.scss']
 })
 export class BingoHandlerComponent {
-  private openEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
+  private openEditForm: EventEmitter<BingoElement> = new EventEmitter<BingoElement>();
 
-  @Output() public get OpenEditForm(): EventEmitter<boolean> {
+  @Output() public get OpenEditForm(): EventEmitter<BingoElement> {
     return this.openEditForm;
   }
 
-  public OpenEditFormEvent(): void {
-    this.openEditForm.emit(true);
+  public OpenEditFormEvent(element: BingoElement): void {
+    this.openEditForm.emit(element);
   }
 
 }

@@ -17,7 +17,7 @@
     <div
       class="grid__cell"
       *ngFor="let item of Elements$ | async"
-      (click)="onEditClick()"
+      (click)="onEditClick(item)"
     >
       {{ item.value }}
     </div>

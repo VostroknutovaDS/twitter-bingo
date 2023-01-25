@@ -17,7 +17,7 @@ export class BingoPreviewComponent implements OnDestroy {
   private numberOfEmptyCells$: Subject<number[]> = new Subject();
   private elements$: Observable<BingoElement[]>;
   private destroy$: Subject<boolean> = new Subject();
-  private openEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
+  private openEditForm: EventEmitter<BingoElement> = new EventEmitter<BingoElement>();
 
   public get GeneratedTable$(): Observable<Table> {
     return this.generatedTable$;
@@ -31,7 +31,7 @@ export class BingoPreviewComponent implements OnDestroy {
     return this.numberOfEmptyCells$;
   }
 
-  @Output() public get OpenEditForm(): EventEmitter<boolean> {
+  @Output() public get OpenEditForm(): EventEmitter<BingoElement> {
     return this.openEditForm;
   }
 
@@ -48,7 +48,7 @@ export class BingoPreviewComponent implements OnDestroy {
     this.destroy$.next(true);
   }
 
-  public onEditClick(): void {
-    this.openEditForm.emit(true);
+  public onEditClick(element: BingoElement): void {
+    this.openEditForm.emit(element);
   }
 }

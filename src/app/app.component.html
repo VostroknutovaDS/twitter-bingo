@@ -5,11 +5,12 @@
   ></app-elements-form>
   <app-bingo-handler
     class="bingo-handler"
-    (OpenEditForm)="openEditForm()"
+    (OpenEditForm)="openEditForm($event)"
   ></app-bingo-handler>
   <app-edit-form
     *ngIf="ShowEditForm"
     [mode]="mode"
+    [element]="EditElement"
     (CloseEditForm)="closeEditForm()"
   ></app-edit-form>
 </div>
