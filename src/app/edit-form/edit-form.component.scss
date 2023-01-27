@@ -21,6 +21,26 @@
       width: $cell-size;
       height: $cell-size;
       border: $cell-border-size solid $border-color;
+      padding: $default-gap;
+      overflow: hidden;
+
+      font-size: 1.8vh;
+      line-height: 2.2vh;
+
+      @media (max-width: 425px) {
+        width: calc(#{$cell-size-mob} - #{$default-gap});
+        height: calc(#{$cell-size-mob} - #{$default-gap});
+        font-size: 1.8vw;
+        line-height: 2.2vw;
+      }
+
+      &_contenteditable {
+        background-color: $main-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 
