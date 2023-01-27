@@ -67,6 +67,20 @@
 
   &__cell {
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: $default-gap;
+    overflow: hidden;
+
+    font-size: 1.8vh;
+    line-height: 2.2vh;
+
+    @media (max-width: 425px) {
+      font-size: 1.8vw;
+      line-height: 2.2vw;
+    }
 
     &:hover:not(.grid__cell_generated) {
       outline: $cell-border-size solid red;
