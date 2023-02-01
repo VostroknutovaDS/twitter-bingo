@@ -2,9 +2,8 @@
   <div class="edit-form__text-container">
     <div
       class="text text_contenteditable"
-      contenteditable="true"
-      [textContent]="newValue"
-      (input)="newValue = $any($event.target).innerText ?? ''"
+      contenteditable
+      [(ngModel)]="newValue"
     ></div>
   </div>
   <div class="button-group button-group_col edit-form__button-group">

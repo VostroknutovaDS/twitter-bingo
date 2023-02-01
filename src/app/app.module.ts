@@ -15,6 +15,7 @@ import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { BingoElementCellComponent } from './bingo-element-cell/bingo-element-cell.component';
 import { BingoElementListComponent } from './bingo-element-list/bingo-element-list.component';
+import { ContentEditableValueAccessor } from './shared/contenteditable.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BingoElementListComponent } from './bingo-element-list/bingo-element-li
     BingoHandlerComponent,
     EditFormComponent,
     BingoElementCellComponent,
-    BingoElementListComponent
+    BingoElementListComponent,
+    ContentEditableValueAccessor
   ],
   imports: [
     BrowserModule,
