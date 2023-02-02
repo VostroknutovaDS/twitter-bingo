@@ -15,12 +15,11 @@
   </table> -->
   <div class="grid grid-size-{{ (GeneratedTable$ | async)?.table?.length }}">
     <div
-      class="grid__cell"
+      class="grid__cell cell"
       *ngFor="let item of Elements$ | async"
+      [innerHTML]="item.value"
       (click)="onEditClick(item)"
-    >
-      {{ item.value }}
-    </div>
+    ></div>
     <div
       *ngFor="let empty of NumberOfEmptyCells$ | async"
       class="grid__cell grid__cell_generated"

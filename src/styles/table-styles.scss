@@ -1,0 +1,20 @@
+@import "../styles/constants";
+
+.cell {
+  background-color: $main-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $default-gap;
+  overflow: hidden;
+
+  font-size: 1.8vh;
+  line-height: 2.2vh;
+
+  @media (max-width: 425px) {
+    font-size: 1.8vw;
+    line-height: 2.2vw;
+  }
+}
