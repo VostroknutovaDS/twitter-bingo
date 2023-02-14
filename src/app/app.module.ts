@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { BingoElementCellComponent } from './bingo-element-cell/bingo-element-cell.component';
 import { BingoElementListComponent } from './bingo-element-list/bingo-element-list.component';
 import { ContentEditableValueAccessor } from './shared/contenteditable.directive';
+import { HelpModalComponent } from './help-modal/help-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ContentEditableValueAccessor } from './shared/contenteditable.directive
     EditFormComponent,
     BingoElementCellComponent,
     BingoElementListComponent,
-    ContentEditableValueAccessor
+    ContentEditableValueAccessor,
+    HelpModalComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ContentEditableValueAccessor } from './shared/contenteditable.directive
     ReactiveFormsModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [DATA_PROVIDERS],
   bootstrap: [AppComponent]

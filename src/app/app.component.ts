@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EditFormModes } from './core/edit-form-modes';
 import { BingoElement } from './core/types';
+import { HelpModalComponent } from './help-modal/help-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,8 @@ export class AppComponent implements OnInit {
   public get EditElement(): BingoElement | null {
     return this.editElement;
   }
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isMobile = navigator.userAgent.includes('Mobi');
@@ -45,5 +49,9 @@ export class AppComponent implements OnInit {
     this.showEditForm = false;
     this.showAddButton = true;
     this.editElement = null;
+  }
+
+  public openHelp(): void {
+    this.dialog.open(HelpModalComponent, { width: '70%', height: '75%' });
   }
 }
