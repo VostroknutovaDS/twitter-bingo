@@ -17,13 +17,16 @@
 
     .text {
       resize: none;
-      width: $cell-size;
-      height: $cell-size;
       border: $cell-border-size solid $border-color;
 
       @media (max-width: 425px) {
-        width: calc(#{$cell-size-mob} - #{$default-gap});
-        height: calc(#{$cell-size-mob} - #{$default-gap});
+        width: calc(#{$cell-size-mob} - #{$double-gap});
+        height: calc(#{$cell-size-mob} - #{$double-gap});
+      }
+
+      @media (min-width: 426px) {
+        width: calc(#{$cell-size} - #{$double-gap});
+        height: calc(#{$cell-size} - #{$double-gap});
       }
     }
   }
