@@ -1,7 +1,6 @@
 @import "../../styles/constants";
 
 :host {
-  position: fixed;
   left: 3%;
   bottom: 0;
   display: block;
@@ -34,19 +33,38 @@
     justify-content: space-evenly;
 
     margin-right: $double-gap;
+
+    @media (min-width: 600px) {
+      margin-left: auto;
+      margin-right: auto;
+
+      > button {
+        width: $cell-size;
+      }
+    }
   }
 
   &__content {
     position: absolute;
     background-color: $background-color;
-    border-radius: 20px 20px 0 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 95vw;
-    height: 25vh;
     margin: auto;
 
     display: flex;
+
+    @media (max-width: 599px) {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 95vw;
+      height: 25vh;
+      border-radius: 20px 20px 0 0;
+    }
+
+    @media (min-width: 600px) {
+      flex-direction: column;
+      right: 0;
+      width: 17vw;
+      height: 100%;
+    }
   }
 }

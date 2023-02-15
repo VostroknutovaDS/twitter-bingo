@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   public get ShowEditForm(): boolean {
-    return this.showEditForm && this.isMobile;
+    return this.showEditForm;
   }
 
   public openEditForm(element?: BingoElement): void {

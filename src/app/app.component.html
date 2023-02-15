@@ -1,8 +1,4 @@
 <div class="page-container">
-  <app-elements-form
-    *ngIf="!isMobile"
-    class="elements-form"
-  ></app-elements-form>
   <app-bingo-handler
     class="bingo-handler"
     (OpenEditForm)="openEditForm($event)"
@@ -20,7 +16,7 @@
 </button>
 
 <button
-  *ngIf="isMobile && ShowAddButton"
+  *ngIf="ShowAddButton"
   mat-fab
   color="accent"
   class="add-button"
