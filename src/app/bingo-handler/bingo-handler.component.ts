@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { BingoElement } from '../core/types';
 
+/**
+ * Component that displays side data connected to bingo
+ */
 @Component({
   selector: 'app-bingo-handler',
   templateUrl: './bingo-handler.component.html',

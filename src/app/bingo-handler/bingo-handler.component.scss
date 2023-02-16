@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bingo-title {
+  margin-bottom: 20px;
+  border: none;
+  font-size: 3vh;
+  font-weight: 700;
+  text-align: center;
+}

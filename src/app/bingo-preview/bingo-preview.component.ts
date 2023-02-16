@@ -6,6 +6,9 @@ import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
 
+/**
+ * The component that displays only bingo preview(table)
+ */
 @Component({
   selector: 'app-bingo-preview',
   templateUrl: './bingo-preview.component.html',

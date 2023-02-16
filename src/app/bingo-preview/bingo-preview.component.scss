@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
 }
 
 .table {
@@ -31,14 +30,6 @@
       background-color: $generated-cell-color;
     }
   }
-}
-
-.bingo-title {
-  margin-bottom: 20px;
-  border: none;
-  font-size: 3vh;
-  font-weight: 700;
-  text-align: center;
 }
 
 @keyframes grow {
