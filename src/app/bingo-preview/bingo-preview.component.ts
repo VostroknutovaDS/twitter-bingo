@@ -39,6 +39,13 @@ export class BingoPreviewComponent implements OnDestroy {
   }
 
   constructor(private readonly elementsService: ElementsBaseService, private readonly tableGenerationService: TableGenerationBaseService,) {
+    /*
+    TODO
+    Remove table generation. It's not necessary for a bingo made with grids.
+    Next functions must be implemeted:
+    - get size of table x oriented side, but without table
+    - get amount of empty cells without generated table
+     */
     this.generatedTable$ = this.tableGenerationService.getTable();
     this.elements$ = this.elementsService.getElements();
 

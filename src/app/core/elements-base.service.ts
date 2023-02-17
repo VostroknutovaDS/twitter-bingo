@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BingoElement } from './types';
 
+/**
+ * The service stores bingo elements
+ */
 @Injectable({
   providedIn: 'root'
 })

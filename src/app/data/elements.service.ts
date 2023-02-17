@@ -4,6 +4,9 @@ import { MAX_NUMBER_OF_ELEMENTS } from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';
 
+/**
+ * The service stores bingo elements
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +18,7 @@ export class ElementsService implements ElementsBaseService {
     if (this.elements.value.length >= MAX_NUMBER_OF_ELEMENTS) {
       return;
     }
-    
+
     this.elements.next(this.elements.value.concat({ id: Date.now() + this.counter.toString(), value: el }));
     this.counter++;
   }

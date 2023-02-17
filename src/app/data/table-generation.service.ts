@@ -5,6 +5,9 @@ import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
 
+/**
+ * The service generates two-dimensional array from bingo elements list
+ */
 @Injectable({
   providedIn: 'root'
 })
