@@ -1,3 +1,6 @@
+<span class="bingo-count">
+  {{ (Elements$ | async)?.length }} / {{ maxNumberOfElements }}
+</span>
 <input class="bingo-title" value="Your wonderful bingo!" />
 <app-bingo-preview
   (OpenEditForm)="OpenEditFormEvent($event)"
