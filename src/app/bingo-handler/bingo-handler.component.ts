@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { MAX_NUMBER_OF_ELEMENTS } from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';

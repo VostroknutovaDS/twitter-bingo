@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnDestroy, Output } from '@angular/
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EventEmitter } from '@angular/core';
+
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+
 import { EditFormModes } from '../core/edit-form-modes';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';

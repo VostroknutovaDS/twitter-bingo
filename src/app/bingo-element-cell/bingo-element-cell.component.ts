@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { BingoElementComponent } from '../bingo-element/bingo-element.component';
 
 @Component({

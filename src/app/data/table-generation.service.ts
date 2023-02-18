@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+
 import { MAX_NUMBER_OF_ELEMENTS, MAX_NUMBER_OF_ROWS } from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';

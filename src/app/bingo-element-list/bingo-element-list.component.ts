@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+
 import { BingoElementComponent } from '../bingo-element/bingo-element.component';
 
 @Component({

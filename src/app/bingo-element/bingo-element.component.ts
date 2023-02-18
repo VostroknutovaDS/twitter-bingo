@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+
 import { ElementsBaseService } from '../core/elements-base.service';
 import { BingoElement } from '../core/types';
 

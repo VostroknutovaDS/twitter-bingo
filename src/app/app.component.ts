@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { EditFormModes } from './core/edit-form-modes';
 import { BingoElement } from './core/types';
 import { HelpModalComponent } from './help-modal/help-modal.component';
