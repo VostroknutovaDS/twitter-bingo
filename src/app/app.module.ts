@@ -14,7 +14,6 @@ import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 import { DATA_PROVIDERS } from 'src/assets/configuration/providers';
 import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
-import { BingoElementListComponent } from './bingo-element-list/bingo-element-list.component';
 import { ContentEditableValueAccessor } from './shared/contenteditable.directive';
 import { HelpModalComponent } from './help-modal/help-modal.component';
 import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
@@ -25,7 +24,6 @@ import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
     BingoPreviewComponent,
     BingoHandlerComponent,
     EditFormComponent,
-    BingoElementListComponent,
     ContentEditableValueAccessor,
     HelpModalComponent
   ],
