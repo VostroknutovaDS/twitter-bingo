@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { ElementsFormComponent } from './elements-form/elements-form.component';
 import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
 import { DATA_PROVIDERS } from 'src/assets/configuration/providers';
 import { BingoHandlerComponent } from './bingo-handler/bingo-handler.component';
@@ -23,7 +22,6 @@ import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ElementsFormComponent,
     BingoPreviewComponent,
     BingoHandlerComponent,
     EditFormComponent,
