@@ -1,4 +1,13 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 
 import { EditFormModes } from '../core/edit-form-modes';
 import { ElementsBaseService } from '../core/elements-base.service';
@@ -7,9 +16,11 @@ import { BingoElement } from '../core/types';
 @Component({
   selector: 'app-edit-form',
   templateUrl: './edit-form.component.html',
-  styleUrls: ['./edit-form.component.scss']
+  styleUrls: ['./edit-form.component.scss'],
 })
 export class EditFormComponent implements OnChanges {
+  @ViewChild('contenteditableCell') private cell!: ElementRef;
+
   private closeEditForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public newValue = '';
@@ -21,11 +32,14 @@ export class EditFormComponent implements OnChanges {
     return this.closeEditForm;
   }
 
-  constructor(private readonly elementsService: ElementsBaseService) { }
+  constructor(private readonly elementsService: ElementsBaseService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.element) {
       this.newValue = changes.element.currentValue?.value;
+      setTimeout(() => {
+        this.cell?.nativeElement.focus();
+      }, 0);
     }
   }
 
