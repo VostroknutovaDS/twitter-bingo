@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostListener,
   Input,
   OnChanges,
   Output,
@@ -41,6 +42,11 @@ export class EditFormComponent implements OnChanges {
         this.cell?.nativeElement.focus();
       }, 0);
     }
+  }
+
+  @HostListener('window:keydown.escape')
+  private closeOnEscape(): void {
+    this.closeForm();
   }
 
   public isEdit(): boolean {
