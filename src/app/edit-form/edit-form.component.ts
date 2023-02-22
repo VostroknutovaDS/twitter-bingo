@@ -49,6 +49,11 @@ export class EditFormComponent implements OnChanges {
     this.closeForm();
   }
 
+  @HostListener('window:keydown.shift.enter')
+  private saveOnShiftEnter(): void {
+    this.saveChanges();
+  }
+
   public isEdit(): boolean {
     return this.mode === EditFormModes.Edit;
   }
