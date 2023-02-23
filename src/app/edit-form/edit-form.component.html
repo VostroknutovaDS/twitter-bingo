@@ -9,17 +9,17 @@
   </div>
   <div class="button-group button-group_col edit-form__button-group">
     <button
-      mat-flat-button
+      mat-stroked-button
       color="warn"
       *ngIf="isEdit()"
       (click)="onDeleteClick()"
     >
       <mat-icon>delete</mat-icon>
     </button>
-    <button mat-flat-button color="warn" (click)="onCloseClick()">
+    <button mat-raised-button color="warn" (click)="onCloseClick()">
       <mat-icon>close</mat-icon>
     </button>
-    <button mat-flat-button class="edit-form__button" (click)="saveChanges()">
+    <button mat-raised-button class="edit-form__button" (click)="saveChanges()">
       <mat-icon>done</mat-icon>
     </button>
   </div>
