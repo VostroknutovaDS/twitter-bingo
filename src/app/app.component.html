@@ -1,4 +1,5 @@
 <div class="page-container">
+  <app-table-editor *ngIf="isTableEditorEnabled"></app-table-editor>
   <app-bingo-handler
     class="bingo-handler"
     (OpenEditForm)="openEditForm($event)"

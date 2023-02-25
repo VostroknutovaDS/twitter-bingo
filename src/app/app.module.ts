@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { ContentEditableValueAccessor } from './shared/contenteditable.directive';
 import { HelpModalComponent } from './help-modal/help-modal.component';
 import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
+import { TableEditorComponent } from './table-editor/table-editor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
     BingoHandlerComponent,
     EditFormComponent,
     ContentEditableValueAccessor,
-    HelpModalComponent
+    HelpModalComponent,
+    TableEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,14 +39,18 @@ import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [DATA_PROVIDERS, {
-    provide: APP_INITIALIZER,
-    useFactory: (featureToggleService: FeatureToggleServiceBase) => () => featureToggleService.loadFeatureToggles(),
-    deps: [FeatureToggleServiceBase],
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    DATA_PROVIDERS,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (featureToggleService: FeatureToggleServiceBase) => () =>
+        featureToggleService.loadFeatureToggles(),
+      deps: [FeatureToggleServiceBase],
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

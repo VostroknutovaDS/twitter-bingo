@@ -1,3 +1,4 @@
 {
-    "test-feature": false
+  "test-feature": false,
+  "table-editor": false
 }

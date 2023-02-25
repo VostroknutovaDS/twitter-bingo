@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { EditFormModes } from './core/edit-form-modes';
+import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
 import { BingoElement } from './core/types';
 import { HelpModalComponent } from './help-modal/help-modal.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   public isMobile = false;
@@ -25,7 +26,14 @@ export class AppComponent implements OnInit {
     return this.editElement;
   }
 
-  constructor(public dialog: MatDialog) { }
+  public get isTableEditorEnabled(): boolean {
+    return this.featureToggleService.isFeatureOn('table-editor');
+  }
+
+  constructor(
+    public dialog: MatDialog,
+    private readonly featureToggleService: FeatureToggleServiceBase
+  ) {}
 
   ngOnInit(): void {
     this.isMobile = navigator.userAgent.includes('Mobi');
