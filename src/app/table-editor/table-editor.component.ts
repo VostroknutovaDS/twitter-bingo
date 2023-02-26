@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
   selector: 'app-table-editor',
   templateUrl: 'table-editor.component.html',
 })
-export class TableEditorComponent {}
+export class TableEditorComponent {
+  /*TODO
+  Table should have these configurations enbled:
+  1) Background: set your own image or use samples
+  2) Border: size, color, type */
+}
