@@ -1,4 +1,5 @@
 {
   "test-feature": false,
-  "table-editor": false
+  "table-editor": false,
+  "mock-table": false
 }

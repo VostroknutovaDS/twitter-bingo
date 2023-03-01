@@ -1,11 +1,18 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, Output } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  Output,
+} from '@angular/core';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EventEmitter } from '@angular/core';
 
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
+import { MOCK_DATA } from 'src/assets/configuration/mock-data';
+import { FeatureToggleServiceBase } from '../core/feature-toggle-base.service';
 
 /**
  * The component that displays only bingo preview(table)
@@ -14,14 +21,15 @@ import { BingoElement, Table } from '../core/types';
   selector: 'app-bingo-preview',
   templateUrl: './bingo-preview.component.html',
   styleUrls: ['./bingo-preview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BingoPreviewComponent implements OnDestroy {
   private generatedTable$: Observable<Table>;
-  private numberOfEmptyCells$: Subject<number[]> = new Subject();
+  private numberOfEmptyCells$: ReplaySubject<number[]> = new ReplaySubject();
   private elements$: Observable<BingoElement[]>;
   private destroy$: Subject<boolean> = new Subject();
-  private openEditForm: EventEmitter<BingoElement> = new EventEmitter<BingoElement>();
+  private openEditForm: EventEmitter<BingoElement> =
+    new EventEmitter<BingoElement>();
 
   public get GeneratedTable$(): Observable<Table> {
     return this.generatedTable$;
@@ -39,7 +47,18 @@ export class BingoPreviewComponent implements OnDestroy {
     return this.openEditForm;
   }
 
-  constructor(private readonly elementsService: ElementsBaseService, private readonly tableGenerationService: TableGenerationBaseService,) {
+  constructor(
+    private readonly elementsService: ElementsBaseService,
+    private readonly tableGenerationService: TableGenerationBaseService,
+    private readonly featureToggleService: FeatureToggleServiceBase
+  ) {
+    //set mock table for testing
+    if (this.featureToggleService.isFeatureOn('mock-table')) {
+      for (let i = 0; i < MOCK_DATA.length; i++) {
+        this.elementsService.addElement(MOCK_DATA[i]);
+      }
+    }
+
     /*
     TODO
     Remove table generation. It's not necessary for a bingo made with grids.
@@ -50,7 +69,7 @@ export class BingoPreviewComponent implements OnDestroy {
     this.generatedTable$ = this.tableGenerationService.getTable();
     this.elements$ = this.elementsService.getElements();
 
-    this.generatedTable$.pipe(takeUntil(this.destroy$)).subscribe(table => {
+    this.generatedTable$.pipe(takeUntil(this.destroy$)).subscribe((table) => {
       this.numberOfEmptyCells$.next(Array(table.numberOfEmptyCells));
     });
   }
