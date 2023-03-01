@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 
-import { MAX_NUMBER_OF_ELEMENTS, MAX_NUMBER_OF_ROWS } from 'src/assets/configuration/constants';
+import {
+  MAX_NUMBER_OF_ELEMENTS,
+  MAX_NUMBER_OF_ROWS,
+} from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
@@ -10,14 +13,14 @@ import { BingoElement, Table } from '../core/types';
  * The service generates two-dimensional array from bingo elements list
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TableGenerationService implements TableGenerationBaseService {
-  private table$: Subject<Table> = new Subject<Table>();
+  private table$: ReplaySubject<Table> = new ReplaySubject<Table>(1);
   private table: BingoElement[][] = [];
 
   constructor(private readonly elementsService: ElementsBaseService) {
-    this.elementsService.getElements().subscribe(elements => {
+    this.elementsService.getElements().subscribe((elements) => {
       this.generateTable(elements);
     });
   }
@@ -39,7 +42,10 @@ export class TableGenerationService implements TableGenerationBaseService {
       this.table.push(newElements.slice(rows * i, rows * (i + 1)));
     }
 
-    this.table$.next({ table: this.table, numberOfEmptyCells: rows * rows - elements.length });
+    this.table$.next({
+      table: this.table,
+      numberOfEmptyCells: rows * rows - elements.length,
+    });
   }
 
   private findRowsNumber(elements: Array<unknown>): number {
@@ -57,8 +63,13 @@ export class TableGenerationService implements TableGenerationBaseService {
     return rows;
   }
 
-  private addEmptyCells(elements: BingoElement[], rows: number): BingoElement[] {
-    const emptyCells: BingoElement[] = Array(rows * rows - elements.length).fill(<BingoElement>{ value: '', isGenerated: true });
+  private addEmptyCells(
+    elements: BingoElement[],
+    rows: number
+  ): BingoElement[] {
+    const emptyCells: BingoElement[] = Array(
+      rows * rows - elements.length
+    ).fill(<BingoElement>{ value: '', isGenerated: true });
     return elements.concat(emptyCells);
   }
 }
