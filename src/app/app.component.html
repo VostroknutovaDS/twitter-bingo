@@ -5,7 +5,7 @@
     (OpenEditForm)="openEditForm($event)"
   ></app-bingo-handler>
   <app-edit-form
-    *ngIf="ShowEditForm"
+    *ngIf="editFormToggle && ShowEditForm"
     [mode]="mode"
     [element]="EditElement"
     (CloseEditForm)="closeEditForm()"
@@ -17,7 +17,7 @@
 </button>
 
 <button
-  *ngIf="ShowAddButton"
+  *ngIf="editFormToggle && ShowAddButton"
   mat-fab
   color="accent"
   class="add-button"

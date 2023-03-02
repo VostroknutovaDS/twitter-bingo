@@ -1,5 +1,6 @@
 {
   "test-feature": false,
   "table-editor": false,
-  "mock-table": false
+  "mock-table": false,
+  "edit-form": true
 }

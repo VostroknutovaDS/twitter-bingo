@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   private showAddButton = true;
   private showEditForm = false;
   private editElement: BingoElement | null = null;
+  public readonly editFormToggle: boolean;
   public mode: EditFormModes = EditFormModes.Add;
 
   public get ShowAddButton(): boolean {
@@ -33,7 +34,9 @@ export class AppComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private readonly featureToggleService: FeatureToggleServiceBase
-  ) {}
+  ) {
+    this.editFormToggle = this.featureToggleService.isFeatureOn('edit-form');
+  }
 
   ngOnInit(): void {
     this.isMobile = navigator.userAgent.includes('Mobi');
