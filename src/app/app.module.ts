@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
@@ -40,6 +41,7 @@ import { TableEditorComponent } from './table-editor/table-editor.component';
     MatIconModule,
     MatDialogModule,
     HttpClientModule,
+    MatSidenavModule,
   ],
   providers: [
     DATA_PROVIDERS,

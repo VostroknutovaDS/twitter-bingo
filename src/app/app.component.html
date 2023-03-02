@@ -1,27 +1,34 @@
-<div class="page-container">
-  <app-table-editor *ngIf="isTableEditorEnabled"></app-table-editor>
-  <app-bingo-handler
-    class="bingo-handler"
-    (OpenEditForm)="openEditForm($event)"
-  ></app-bingo-handler>
-  <app-edit-form
-    *ngIf="editFormToggle && ShowEditForm"
-    [mode]="mode"
-    [element]="EditElement"
-    (CloseEditForm)="closeEditForm()"
-  ></app-edit-form>
-</div>
-
-<button mat-mini-fab color="primary" class="help-button" (click)="openHelp()">
-  <mat-icon>question_mark</mat-icon>
-</button>
-
-<button
-  *ngIf="editFormToggle && ShowAddButton"
-  mat-fab
-  color="accent"
-  class="add-button"
-  (click)="openEditForm()"
->
-  <mat-icon>add</mat-icon>
-</button>
+<mat-sidenav-container class="page-container" [hasBackdrop]="false">
+  <mat-sidenav position="start" mode="over" opened>
+    <app-table-editor *ngIf="isTableEditorEnabled"></app-table-editor>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-bingo-handler
+      class="bingo-handler"
+      (OpenEditForm)="openEditForm($event)"
+    ></app-bingo-handler>
+    <app-edit-form
+      *ngIf="editFormToggle && ShowEditForm"
+      [mode]="mode"
+      [element]="EditElement"
+      (CloseEditForm)="closeEditForm()"
+    ></app-edit-form>
+    <button
+      mat-mini-fab
+      color="primary"
+      class="help-button"
+      (click)="openHelp()"
+    >
+      <mat-icon>question_mark</mat-icon>
+    </button>
+    <button
+      *ngIf="editFormToggle && ShowAddButton"
+      mat-fab
+      color="accent"
+      class="add-button"
+      (click)="openEditForm()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
