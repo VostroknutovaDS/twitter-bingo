@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 
-import {
-  MAX_NUMBER_OF_ELEMENTS,
-  MAX_NUMBER_OF_ROWS,
-} from 'src/assets/configuration/constants';
+import { MAX_NUMBER_OF_ELEMENTS } from 'src/assets/configuration/constants';
 import { ElementsBaseService } from '../core/elements-base.service';
 import { TableGenerationBaseService } from '../core/table-generation-base.service';
 import { BingoElement, Table } from '../core/types';
@@ -49,18 +46,7 @@ export class TableGenerationService implements TableGenerationBaseService {
   }
 
   private findRowsNumber(elements: Array<unknown>): number {
-    if (elements.length === 0) {
-      return 0;
-    }
-
-    let rows = 0;
-    let found = false;
-    while (rows <= MAX_NUMBER_OF_ROWS && !found) {
-      rows++;
-      found = elements.length <= rows * rows;
-    }
-
-    return rows;
+    return Math.ceil(Math.sqrt(elements.length));
   }
 
   private addEmptyCells(
