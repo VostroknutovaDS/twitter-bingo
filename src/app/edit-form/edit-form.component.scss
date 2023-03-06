@@ -3,10 +3,17 @@
 :host {
   position: fixed;
   height: 100%;
-  right: 0;
   bottom: 0;
   display: block;
   background-color: cadetblue;
+
+  @media (max-width: 425px) {
+    left: 3%;
+  }
+
+  @media (min-width: 426px) {
+    right: 0;
+  }
 }
 
 .edit-form {
