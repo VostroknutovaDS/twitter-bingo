@@ -1,1 +1,79 @@
-<span>Hellooooooo!</span>
+<mat-accordion>
+  <!-- Title -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Title </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="titleControls">
+      <mat-form-field>
+        <mat-label>Font</mat-label>
+        <mat-select formControlName="fontControl">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Font size</mat-label>
+        <input matInput type="number" formControlName="fontSizeControl" />
+      </mat-form-field>
+      <mat-radio-group formControlName="fontStyleControl">
+        <mat-radio-button value="bold">Bold</mat-radio-button>
+        <mat-radio-button value="italic">Italic</mat-radio-button>
+      </mat-radio-group>
+    </form>
+  </mat-expansion-panel>
+  <!-- Background -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Background </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="backgroundControl"></form>
+  </mat-expansion-panel>
+  <!-- Border -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Border </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="borderControl">
+      <mat-form-field>
+        <mat-label>Size</mat-label>
+        <input type="number" matInput formControlName="sizeControl" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput formControlName="colorControl" />
+      </mat-form-field>
+    </form>
+  </mat-expansion-panel>
+  <!-- Cells -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Cells </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="cellsControl">
+      <mat-form-field>
+        <mat-label>Background color</mat-label>
+        <input matInput formControlName="backgroundControl" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Text color</mat-label>
+        <input matInput formControlName="textColorControl" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Font</mat-label>
+        <mat-select formControlName="fontControl">
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Font size</mat-label>
+        <input matInput type="number" formControlName="fontSizeControl" />
+      </mat-form-field>
+      <mat-radio-group formControlName="fontStyleControl">
+        <mat-radio-button value="bold">Bold</mat-radio-button>
+        <mat-radio-button value="italic">Italic</mat-radio-button>
+      </mat-radio-group>
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
