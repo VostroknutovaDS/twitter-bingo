@@ -9,6 +9,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { BingoPreviewComponent } from './bingo-preview/bingo-preview.component';
@@ -42,6 +46,10 @@ import { TableEditorComponent } from './table-editor/table-editor.component';
     MatDialogModule,
     HttpClientModule,
     MatSidenavModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
   ],
   providers: [
     DATA_PROVIDERS,
