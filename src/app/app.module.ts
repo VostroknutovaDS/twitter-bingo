@@ -63,4 +63,4 @@ import { TableEditorComponent } from './table-editor/table-editor.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

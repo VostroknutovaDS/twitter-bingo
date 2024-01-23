@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 /**
  * The component that displays the table editor menu
@@ -18,21 +18,21 @@ export class TableEditorComponent {
   4) Cells: background color, text color, font, font size, bold/italic
   */
 
-  public titleControls = new FormGroup({
-    fontControl: new FormControl(),
-    fontSizeControl: new FormControl(),
-    fontStyleControl: new FormControl(),
+  public titleControls = new UntypedFormGroup({
+    fontControl: new UntypedFormControl(),
+    fontSizeControl: new UntypedFormControl(),
+    fontStyleControl: new UntypedFormControl(),
   });
-  public backgroundControl = new FormGroup({});
-  public borderControl = new FormGroup({
-    sizeControl: new FormControl(),
-    colorControl: new FormControl(),
+  public backgroundControl = new UntypedFormGroup({});
+  public borderControl = new UntypedFormGroup({
+    sizeControl: new UntypedFormControl(),
+    colorControl: new UntypedFormControl(),
   });
-  public cellsControl = new FormGroup({
-    backgroundControl: new FormControl(),
-    textColorControl: new FormControl(),
-    fontControl: new FormControl(),
-    fontSizeControl: new FormControl(),
-    fontStyleControl: new FormControl(),
+  public cellsControl = new UntypedFormGroup({
+    backgroundControl: new UntypedFormControl(),
+    textColorControl: new UntypedFormControl(),
+    fontControl: new UntypedFormControl(),
+    fontSizeControl: new UntypedFormControl(),
+    fontStyleControl: new UntypedFormControl(),
   });
 }

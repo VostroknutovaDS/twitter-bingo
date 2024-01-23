@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "twitter-bingo:build:production"
+              "buildTarget": "twitter-bingo:build:production"
             },
             "development": {
-              "browserTarget": "twitter-bingo:build:development"
+              "buildTarget": "twitter-bingo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "twitter-bingo:build"
+            "buildTarget": "twitter-bingo:build"
           }
         },
         "test": {
@@ -112,5 +112,7 @@
       }
     }
   },
-  "defaultProject": "twitter-bingo"
+  "cli": {
+    "analytics": false
+  }
 }
