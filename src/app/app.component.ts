@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 
 import { EditFormModes } from './core/edit-form-modes';
 import { FeatureToggleServiceBase } from './core/feature-toggle-base.service';
